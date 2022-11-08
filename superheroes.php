@@ -1,5 +1,20 @@
 <?php
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {                                            // attempting to sanitize the user input from the search text
+    if ((isset($_POST['id']) && !empty($_POST['id']))  &&
+        (isset($_POST['name']) && !empty($_POST['name'])&&
+        (isset($_POST['alias']) && !empty($_POST['alias'])) &&
+        (isset($_POST['biography']) && !empty($_POST['biography'])) )) {
+    
+  
+      $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
+      $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+      $alias = filter_input(INPUT_POST, 'alias', FILTER_SANITIZE_SPECIAL_CHARS);
+      $biography = filter_input(INPUT_POST, 'biography', FILTER_SANITIZE_SPECIAL_CHARS);
+
+        }
+}
+
 header('Access-Control-Allow-Origin: *');
 
 $superheroes = [
@@ -69,6 +84,10 @@ $superheroes = [
 
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
+  <li>
+    <?= $superhero['alias'];?>
+  </li>
 <?php endforeach; ?>
 </ul>
+
+

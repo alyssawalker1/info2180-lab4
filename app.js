@@ -1,6 +1,8 @@
 
 window.onload = click;
 
+var textfield = document.getElementById("name");
+
 function click(){
     document.getElementsByClassName("btn")[0].addEventListener('click', displayAlert);
 }
@@ -8,8 +10,11 @@ function click(){
 function displayAlert(event){
 
     fetch("http://localhost/info2180-lab4/superheroes.php")
-    .then(response => response.text())
-    .then(data => {
-        alert(data);
+    .then(a => a.text())
+    .then(y=>{
+            if (textfield === null){                //checks if textfield is empty.
+                document.getElementById("result").innerHTML = y;
+            }
+    
     })
 }

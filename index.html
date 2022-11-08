@@ -1,5 +1,6 @@
 <!DOCTYPE Html>
 <html>
+    <div class="container">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,9 +9,16 @@
         <script src="app.js"></script>
       </head>
     <body>
-        <div id="data">
         <h1> Avengers Character Search </h1>
-        <button class = "btn"> Search</button> 
+        <h5>Search by Full Name or Alies</h5>
+        <div class="search">
+            <input type="name" id="name" placeholder="e.g Captain America or Steve Rogers">
+            <button class = "btn"> Search</button>
         </div>
+            <h3>RESULT</h3>
+            <section>
+                <div class="result" id="result"> </div>
+            </section>
+    </div>        
     </body>
 </html>
